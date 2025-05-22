@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBM(Tool Box Meeting) 서식</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+        
+        body {
+            font-family: 'Nanum Gothic', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #4CAF50;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="date"], input[type="time"], textarea, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 80px;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-item input {
+            margin-right: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+        .risk-high {
+            color: red;
+            font-weight: bold;
+        }
+        .risk-medium {
+            color: orange;
+            font-weight: bold;
+        }
+        .risk-low {
+            color: green;
+            font-weight: bold;
+        }
+        .attendees-section {
+            margin-top: 20px;
+        }
+        .attendee-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .attendee-row input {
+            flex: 1;
+        }
+        .signature-section {
+            margin-top: 20px;
+        }
+        .signature-area {
+            border: 1px solid #ddd;
+            height: 100px;
+            margin-top: 10px;
+            position: relative;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        /* 인쇄 및 PDF 버튼 스타일 */
+        .print-action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        .print-action-buttons button {
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .print-action-buttons button:hover {
+            background-color: #0b7dda;
+        }
+        
+        .tab-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .tab-buttons {
+            display: flex;
+            background-color: #f1f1f1;
+            overflow: hidden;
+            border: 1px solid #ccc;
+        }
+        .tab-button {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab-button:hover {
+            background-color: #444;
+        }
+        .tab-button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .worktalk-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #111 !important; /* 배경색을 거의 검은색으로 변경 */
+            color: white !important; /* 글자색을 흰색으로 변경하여 가독성 향상 */
+        }
+        .worktalk-section label {
+            color: white !important; /* 라벨도 흰색으로 설정 */
+        }
+        .worktalk-section select, 
+        .worktalk-section input,
+        .worktalk-section textarea {
+            background-color: #fff;
+            color: #333;
+        }
+        .center-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .calculated-risk {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #4CAF50;
+            color: #333; /* 글자색을 어두운 색으로 설정하여 가독성 향상 */
+        }
+        .calculated-risk h3 {
+            margin-top: 0;
+        }
+        .risk-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: white;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .risk-badge.high {
+            background-color: red;
+        }
+        .risk-badge.medium {
+            background-color: orange;
+        }
+        .risk-badge.low {
+            background-color: green;
+        }
+        .risk-matrix {
+            margin-top: 15px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+            color: #333; /* 글자색을 어두운 색으로 설정하여 가독성 향상 */
+        }
+        .risk-matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .risk-matrix-table th, .risk-matrix-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        .risk-matrix-cell-high {
+            background-color: #ffcccc;
+        }
+        .risk-matrix-cell-medium {
+            background-color: #fff2cc;
+        }
+        .risk-matrix-cell-low {
+            background-color: #d9ead3;
+        }
+        
+        /* 서명 캔버스 스타일 */
+        .signature-canvas {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            cursor: crosshair;
+        }
+        .signature-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .attendee-signature-btn {
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        
+        .photo-input {
+            margin-bottom: 10px;
+            background-color: white;
+            padding: 8px;
+            border-radius: 4px;
+        }
+        
+        .photo-preview {
+            width: 100%;
+            max-width: 400px;
+            height: 200px;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #555;
+            overflow: hidden;
+        }
+        
+        .photo-preview img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        /* 인쇄 스타일 */
+        @media print {
+            button, .print-action-buttons, .tab-buttons {
+                display: none !important;
+            }
+            
+            .tab-content {
+                display: block !important;
+                border: none !important;
+                page-break-after: always;
+            }
+            
+            #worktalk-tab {
+                page-break-before: always !important;
+            }
+            
+            body, .container {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .container {
+                border: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TBM(Tool Box Meeting) 작업 전 안전미팅</h1>
+        
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="openTab(event, 'tbm-tab')">TBM 서식</button>
+                <button class="tab-button" onclick="openTab(event, 'worktalk-tab')">WorkTalk 데이터</button>
+            </div>
+            
+            <!-- TBM 서식 탭 -->
+            <div id="tbm-tab" class="tab-content" style="display: block;">
+                <!-- 기본 정보 섹션 -->
+                <div class="section">
+                    <h2>기본 정보</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tbmDate">TBM 실시일</label>
+                            <input type="date" id="tbmDate" name="tbmDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="tbmTime">TBM 실시시간</label>
+                            <input type="time" id="tbmTime" name="tbmTime">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tbmLocation">TBM 실시장소</label>
+                            <input type="text" id="tbmLocation" name="tbmLocation" placeholder="TBM 실시장소를 입력하세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="department">부서/팀</label>
+                            <input type="text" id="department" name="department" placeholder="부서 또는 팀명을 입력하세요">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tbmLeader">TBM 리더</label>
+                        <input type="text" id="tbmLeader" name="tbmLeader" placeholder="TBM 리더 이름을 입력하세요">
+                    </div>
+                </div>
+                
+                <!-- 작업 내용 섹션 - 작업빈도, a위험도 필드 삭제 -->
+                <div class="section">
+                    <h2>작업 내용</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="workLocation">작업장소</label>
+                            <input type="text" id="workLocation" name="workLocation" placeholder="작업장소를 입력하세요">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="workContent">작업내용</label>
+                        <textarea id="workContent" name="workContent" placeholder="작업내용을 상세히 기술하세요"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preparation">작업 전 준비사항</label>
+                        <textarea id="preparation" name="preparation" placeholder="작업 전 준비사항을 기술하세요"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="precautions">작업 중 주의사항</label>
+                        <textarea id="precautions" name="precautions" placeholder="작업 중 주의사항을 기술하세요"></textarea>
+                    </div>
+                </div>
+                
+                <!-- 보호구 섹션 -->
+                <div class="section">
+                    <h2>착용 보호구</h2>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="helmet" name="ppe" value="안전모">
+                            <label for="helmet">안전모</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="safetyShoes" name="ppe" value="안전화">
+                            <label for="safetyShoes">안전화</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="gloves" name="ppe" value="안전장갑">
+                            <label for="gloves">안전장갑</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="goggles" name="ppe" value="보안경">
+                            <label for="goggles">보안경</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dustMask" name="ppe" value="방진마스크">
+                            <label for="dustMask">방진마스크</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="earPlugs" name="ppe" value="귀마개">
+                            <label for="earPlugs">귀마개</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="safetyBelt" name="ppe" value="안전대">
+                            <label for="safetyBelt">안전대</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="otherPpe" name="otherPpe" placeholder="기타 보호구">
+                    </div>
+                </div>
+                
+                <!-- 위험요인 및 안전대책 섹션 - 위험요인과 안전대책 입력필드 삭제 -->
+                <div class="section">
+                    <h2>위험요인 및 안전대책</h2>
+                    
+                    <!-- 위험요인 테이블 - 열 구조 변경 -->
+                    <table id="riskTable">
+                        <thead>
+                            <tr>
+                                <th>순번</th>
+                                <th>작업장소</th>
+                                <th>작업내용</th>
+                                <th>위험요인</th>
+                                <th>작업빈도</th>
+                                <th>위험중대성</th>
+                                <th>위험도</th>
+                                <th>개선대책</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 위험요인 항목이 여기에 추가됩니다 -->
+                        </tbody>
+                    </table>
+                    
+                    <!-- 위험요인 추가 버튼 이동 -->
+                    <button id="addRiskItem">위험요인 추가</button>
+                </div>
+                
+                <!-- 참석자 섹션 -->
+                <div class="section attendees-section">
+                    <h2>참석자</h2>
+                    <div id="attendeesList">
+                        <div class="attendee-row">
+                            <input type="text" placeholder="이름" class="attendee-name">
+                            <input type="text" placeholder="서명" class="attendee-signature" readonly>
+                            <button type="button" class="attendee-signature-btn">서명하기</button>
+                        </div>
+                    </div>
+                    <button id="addAttendee">참석자 추가</button>
+                </div>
+                
+                <!-- 서명 섹션 -->
+                <div class="section signature-section">
+                    <h2>TBM 리더 서명</h2>
+                    <div class="signature-area" id="leaderSignature">
+                        <canvas id="leaderSignatureCanvas" class="signature-canvas"></canvas>
+                    </div>
+                    <div class="signature-buttons">
+                        <button id="startLeaderSignature">서명하기</button>
+                        <button id="clearSignature">서명 지우기</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- WorkTalk 데이터 탭 - 작업 전 준비사항과 작업 중 주의사항 필드 삭제 -->
+            <div id="worktalk-tab" class="tab-content">
+                <h2>WorkTalk 위험성평가 데이터</h2>
+                <div class="worktalk-section">
+                    <!-- 사진 업로드 필드 추가 -->
+                    <div class="form-group">
+                        <label for="wt-photo">작업 현장 사진</label>
+                        <input type="file" id="wt-photo" name="wt-photo" accept="image/*" class="photo-input">
+                        <div id="photo-preview" class="photo-preview">
+                            <p>선택된 사진이 여기에 표시됩니다</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wt-workLocation">작업장소</label>
+                        <input type="text" id="wt-workLocation" name="wt-workLocation" placeholder="WorkTalk 작업장소를 입력하세요">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wt-workContent">작업내용</label>
+                        <textarea id="wt-workContent" name="wt-workContent" placeholder="WorkTalk 작업내용을 입력하세요"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wt-dangerFactor">위험요인</label>
+                        <textarea id="wt-dangerFactor" name="wt-dangerFactor" placeholder="WorkTalk 위험요인을 입력하세요"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="wt-workFrequency">작업빈도</label>
+                            <select id="wt-workFrequency" name="wt-workFrequency" onchange="calculateRisk()">
+                                <option value="">선택하세요</option>
+                                <option value="매일" data-value="5">매일</option>
+                                <option value="주 1-2회" data-value="4">주 1-2회</option>
+                                <option value="월 1-2회" data-value="3">월 1-2회</option>
+                                <option value="분기 1회" data-value="2">분기 1회</option>
+                                <option value="년 1-2회" data-value="1">년 1-2회</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="wt-riskLevel">위험중대성</label>
+                            <select id="wt-riskLevel" name="wt-riskLevel" onchange="calculateRisk()">
+                                <option value="">선택하세요</option>
+                                <option value="사망 또는 장애성 중상" data-value="4">사망 또는 장애성 중상</option>
+                                <option value="중상-입원필요" data-value="3">중상-입원필요</option>
+                                <option value="경상-통원치료" data-value="2">경상-통원치료</option>
+                                <option value="아차사고" data-value="1">아차사고</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- 위험도 계산 결과 -->
+                    <div class="calculated-risk">
+                        <h3>계산된 위험도</h3>
+                        <div id="calculatedRiskValue">
+                            <p>작업빈도와 위험중대성을 선택하면 위험도가 자동으로 계산됩니다.</p>
+                            <p>위험도 = 작업빈도 × 위험중대성 (최대 20점)</p>
+                            <p>위험도 등급: <span id="riskGrade">--</span></p>
+                        </div>
+                        
+                        <!-- 위험도 매트릭스 -->
+                        <div class="risk-matrix">
+                            <h4>위험도 매트릭스</h4>
+                            <table class="risk-matrix-table">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th colspan="4">위험중대성</th>
+                                    </tr>
+                                    <tr>
+                                        <th>작업빈도</th>
+                                        <th>아차사고(1)</th>
+                                        <th>경상-통원치료(2)</th>
+                                        <th>중상-입원필요(3)</th>
+                                        <th>사망 또는 장애성 중상(4)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>매일(5)</td>
+                                        <td class="risk-matrix-cell-low">5</td>
+                                        <td class="risk-matrix-cell-medium">10</td>
+                                        <td class="risk-matrix-cell-high">15</td>
+                                        <td class="risk-matrix-cell-high">20</td>
+                                    </tr>
+                                    <tr>
+                                        <td>주 1-2회(4)</td>
+                                        <td class="risk-matrix-cell-low">4</td>
+                                        <td class="risk-matrix-cell-medium">8</td>
+                                        <td class="risk-matrix-cell-medium">12</td>
+                                        <td class="risk-matrix-cell-high">16</td>
+                                    </tr>
+                                    <tr>
+                                        <td>월 1-2회(3)</td>
+                                        <td class="risk-matrix-cell-low">3</td>
+                                        <td class="risk-matrix-cell-low">6</td>
+                                        <td class="risk-matrix-cell-medium">9</td>
+                                        <td class="risk-matrix-cell-medium">12</td>
+                                    </tr>
+                                    <tr>
+                                        <td>분기 1회(2)</td>
+                                        <td class="risk-matrix-cell-low">2</td>
+                                        <td class="risk-matrix-cell-low">4</td>
+                                        <td class="risk-matrix-cell-low">6</td>
+                                        <td class="risk-matrix-cell-medium">8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>년 1-2회(1)</td>
+                                        <td class="risk-matrix-cell-low">1</td>
+                                        <td class="risk-matrix-cell-low">2</td>
+                                        <td class="risk-matrix-cell-low">3</td>
+                                        <td class="risk-matrix-cell-low">4</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div style="margin-top: 10px;">
+                                <span class="risk-high">● 상(12-20점)</span> &nbsp;
+                                <span class="risk-medium">● 중(6-11점)</span> &nbsp;
+                                <span class="risk-low">● 하(1-5점)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wt-improvementIdeas">개선아이디어</label>
+                        <textarea id="wt-improvementIdeas" name="wt-improvementIdeas" placeholder="WorkTalk 개선아이디어를 입력하세요"></textarea>
+                    </div>
+                    
+                    <div class="center-buttons">
+                        <button id="importToTBM">TBM으로 가져오기</button>
+                        <button id="addWorkTalkToRiskTable">위험요인 테이블에 추가</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 인쇄 및 PDF 저장 버튼 -->
+        <div class="print-action-buttons">
+            <button id="printTbm">인쇄하기</button>
+            <button id="savePdf">PDF로 저장</button>
+        </div>
+        
+        <!-- 저장 버튼 -->
+        <button id="saveTbm">TBM 저장하기</button>
+    </div>
+
+    <script>
+    // 탭 전환 함수
+    function openTab(evt, tabName) {
+        var i, tabContent, tabButtons;
+        
+        // 모든 탭 내용 숨기기
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+        
+        // 모든 탭 버튼 비활성화
+        tabButtons = document.getElementsByClassName("tab-button");
+        for (i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+        }
+        
+        // 선택한 탭 활성화
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // 작업빈도와 위험중대성으로 위험도 계산하는 함수
+    function calculateRisk() {
+        var frequencySelect = document.getElementById('wt-workFrequency');
+        var severitySelect = document.getElementById('wt-riskLevel');
+        
+        if (frequencySelect.selectedIndex === 0 || severitySelect.selectedIndex === 0) {
+            document.getElementById('riskGrade').textContent = '--';
+            document.getElementById('riskGrade').className = '';
+            return;
+        }
+        
+        // 작업빈도 값 가져오기
+        var frequencyValue = parseInt(frequencySelect.options[frequencySelect.selectedIndex].getAttribute('data-value'));
+        
+        // 위험중대성 값 가져오기
+        var severityValue = parseInt(severitySelect.options[severitySelect.selectedIndex].getAttribute('data-value'));
+        
+        // 위험도 계산
+        var riskValue = frequencyValue * severityValue;
+        
+        // 위험도 등급 결정
+        var riskGrade;
+        var riskClass;
+        if (riskValue >= 12) {
+            riskGrade = '상 (' + riskValue + '점)';
+            riskClass = 'risk-high';
+        } else if (riskValue >= 6) {
+            riskGrade = '중 (' + riskValue + '점)';
+            riskClass = 'risk-medium';
+        } else {
+            riskGrade = '하 (' + riskValue + '점)';
+            riskClass = 'risk-low';
+        }
+        
+        // 계산 결과 표시
+        document.getElementById('riskGrade').textContent = riskGrade;
+        document.getElementById('riskGrade').className = riskClass;
+    }
+
+    // WorkTalk 데이터를 TBM으로 가져오는 함수 - 수정: 작업내용 필드 데이터 매핑 제거
+    function importWorkTalkToTBM() {
+        try {
+            // WorkTalk 데이터 가져오기
+            var wtWorkLocation = document.getElementById('wt-workLocation').value;
+            var wtWorkContent = document.getElementById('wt-workContent').value;
+            var wtDangerFactor = document.getElementById('wt-dangerFactor').value;
+            var wtWorkFrequency = document.getElementById('wt-workFrequency').value;
+            var wtImprovementIdeas = document.getElementById('wt-improvementIdeas').value;
+            var wtRiskSeverity = document.getElementById('wt-riskLevel').value;
+            
+            // 사진 복사
+            var photoPreview = document.getElementById('photo-preview');
+            var img = photoPreview.querySelector('img');
+            var imgSrc = img ? img.src : null;
+            
+            // 계산된 위험도 등급 가져오기
+            var riskGradeText = document.getElementById('riskGrade').textContent;
+            var riskGrade = "";
+            
+            if (riskGradeText.includes('상')) {
+                riskGrade = "상";
+            } else if (riskGradeText.includes('중')) {
+                riskGrade = "중";
+            } else if (riskGradeText.includes('하')) {
+                riskGrade = "하";
+            }
+            
+            // 필수 항목 확인 (작업장소만 필수로 변경)
+            if (!wtWorkLocation) {
+                alert('작업장소는 필수 입력 항목입니다.');
+                return;
+            }
+            
+            // TBM 필드에 데이터 반영 - 작업내용 필드 매핑 제거
+            document.getElementById('workLocation').value = wtWorkLocation;
+            
+            // 위험요인이 있을 경우에만 테이블에 추가
+            if (wtDangerFactor) {
+                addWorkTalkToRiskTable();
+            }
+            
+            // TBM 탭으로 전환
+            document.querySelector('.tab-buttons .tab-button').click();
+            
+            alert('WorkTalk 데이터가 TBM 서식으로 성공적으로 가져와졌습니다.');
+            
+        } catch (error) {
+            console.error('WorkTalk 데이터 가져오기 중 오류 발생:', error);
+            alert('WorkTalk 데이터 가져오기 중 오류가 발생했습니다: ' + error.message);
+        }
+    }
+
+    // WorkTalk 위험요인을 테이블에 추가하는 함수 - 수정: 열 추가 및 데이터 변경
+    function addWorkTalkToRiskTable() {
+        try {
+            // WorkTalk 데이터 가져오기
+            var wtWorkLocation = document.getElementById('wt-workLocation').value;
+            var wtWorkContent = document.getElementById('wt-workContent').value;
+            var wtDangerFactor = document.getElementById('wt-dangerFactor').value;
+            var wtWorkFrequency = document.getElementById('wt-workFrequency').value;
+            var wtRiskSeverity = document.getElementById('wt-riskLevel').value;
+            var wtImprovementIdeas = document.getElementById('wt-improvementIdeas').value;
+            
+            // 위험도 계산
+            var frequencyValue = 0;
+            var severityValue = 0;
+            
+            if (wtWorkFrequency) {
+                var frequencySelect = document.getElementById('wt-workFrequency');
+                frequencyValue = parseInt(frequencySelect.options[frequencySelect.selectedIndex].getAttribute('data-value'));
+            }
+            
+            if (wtRiskSeverity) {
+                var severitySelect = document.getElementById('wt-riskLevel');
+                severityValue = parseInt(severitySelect.options[severitySelect.selectedIndex].getAttribute('data-value'));
+            }
+            
+            var riskValue = frequencyValue * severityValue;
+            var riskGrade = '';
+            
+            if (riskValue >= 12) {
+                riskGrade = '상 (' + riskValue + '점)';
+            } else if (riskValue >= 6) {
+                riskGrade = '중 (' + riskValue + '점)';
+            } else if (riskValue > 0) {
+                riskGrade = '하 (' + riskValue + '점)';
+            }
+            
+            // 필수 항목 확인
+            if (!wtWorkLocation || !wtDangerFactor) {
+                alert('작업장소와 위험요인은 필수 입력 항목입니다.');
+                return;
+            }
+            
+            // 테이블에 행 추가
+            var table = document.getElementById('riskTable');
+            var tbody = table.getElementsByTagName('tbody')[0];
+            var rowCount = tbody.rows.length;
+            
+            var newRow = tbody.insertRow(rowCount);
+            
+            // 순번/작업장소/작업내용/위험요인/작업빈도/위험중대성/위험도/개선대책 순으로 셀 추가
+            var cell1 = newRow.insertCell(0); // 순번
+            var cell2 = newRow.insertCell(1); // 작업장소
+            var cell3 = newRow.insertCell(2); // 작업내용
+            var cell4 = newRow.insertCell(3); // 위험요인
+            var cell5 = newRow.insertCell(4); // 작업빈도
+            var cell6 = newRow.insertCell(5); // 위험중대성
+            var cell7 = newRow.insertCell(6); // 위험도
+            var cell8 = newRow.insertCell(7); // 개선대책
+            
+            // 셀 내용 설정
+            cell1.textContent = rowCount + 1;
+            cell2.textContent = wtWorkLocation;
+            cell3.textContent = wtWorkContent || '';
+            cell4.textContent = wtDangerFactor;
+            cell5.textContent = wtWorkFrequency || '';
+            cell6.textContent = wtRiskSeverity || '';
+            cell7.textContent = riskGrade;
+            cell8.textContent = wtImprovementIdeas || '';
+            
+        } catch (error) {
+            console.error('WorkTalk 위험요인 추가 중 오류 발생:', error);
+            alert('WorkTalk 위험요인 추가 중 오류가 발생했습니다: ' + error.message);
+        }
+    }
+
+    // 위험요인 추가 함수 - 수정: 열 구조 변경 및 작동 수정
+    function addRiskItem() {
+        // WorkTalk 탭으로 전환하여 데이터 입력 후 테이블에 추가하도록 유도
+        var tabButton = document.querySelector('.tab-buttons .tab-button:nth-child(2)');
+        tabButton.click();
+        
+        alert('WorkTalk 탭에서 작업장소, 작업내용, 위험요인 등을 입력한 후 "위험요인 테이블에 추가" 버튼을 클릭하세요.');
+    }
+
+    // 참석자 추가 함수
+    function addAttendee() {
+        var attendeesList = document.getElementById('attendeesList');
+        var newRow = document.createElement('div');
+        newRow.className = 'attendee-row';
+        newRow.innerHTML = `
+            <input type="text" placeholder="이름" class="attendee-name">
+            <input type="text" placeholder="서명" class="attendee-signature" readonly>
+            <button type="button" class="attendee-signature-btn">서명하기</button>
+            <button type="button" class="remove-attendee">삭제</button>
+        `;
+        attendeesList.appendChild(newRow);
+        
+        // 삭제 버튼에 이벤트 리스너 추가
+        newRow.querySelector('.remove-attendee').addEventListener('click', function() {
+            attendeesList.removeChild(newRow);
+        });
+        
+        // 서명하기 버튼에 이벤트 리스너 추가
+        newRow.querySelector('.attendee-signature-btn').addEventListener('click', function() {
+            openSignatureModal(newRow.querySelector('.attendee-signature'));
+        });
+    }
+    
+    // 서명 모달 열기 함수
+    function openSignatureModal(signatureField) {
+        // 이미 존재하는 모달이 있다면 제거
+        var existingModal = document.getElementById('signatureModal');
+        if (existingModal) {
+            document.body.removeChild(existingModal);
+        }
+        
+        // 모달 생성
+        var modal = document.createElement('div');
+        modal.id = 'signatureModal';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0,0,0,0.7)';
+        modal.style.zIndex = '1000';
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        
+        // 모달 내용
+        var modalContent = document.createElement('div');
+        modalContent.style.backgroundColor = 'white';
+        modalContent.style.padding = '20px';
+        modalContent.style.borderRadius = '5px';
+        modalContent.style.width = '80%';
+        modalContent.style.maxWidth = '500px';
+        
+        // 타이틀
+        var title = document.createElement('h3');
+        title.textContent = '서명하기';
+        title.style.marginTop = '0';
+        
+        // 캔버스 생성
+        var canvas = document.createElement('canvas');
+        canvas.width = 400;
+        canvas.height = 200;
+        canvas.style.border = '1px solid #ddd';
+        canvas.style.touchAction = 'none'; // 모바일 스크롤 방지
+        
+        // 버튼 컨테이너
+        var buttonContainer = document.createElement('div');
+        buttonContainer.style.marginTop = '10px';
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.justifyContent = 'space-between';
+        
+        // 저장 버튼
+        var saveButton = document.createElement('button');
+        saveButton.textContent = '저장';
+        saveButton.style.backgroundColor = '#4CAF50';
+        saveButton.style.color = 'white';
+        saveButton.style.border = 'none';
+        saveButton.style.padding = '8px 15px';
+        saveButton.style.borderRadius = '4px';
+        saveButton.style.cursor = 'pointer';
+        
+        // 취소 버튼
+        var cancelButton = document.createElement('button');
+        cancelButton.textContent = '취소';
+        cancelButton.style.backgroundColor = '#f44336';
+        cancelButton.style.color = 'white';
+        cancelButton.style.border = 'none';
+        cancelButton.style.padding = '8px 15px';
+        cancelButton.style.borderRadius = '4px';
+        cancelButton.style.cursor = 'pointer';
+        
+        // 초기화 버튼
+        var clearButton = document.createElement('button');
+        clearButton.textContent = '지우기';
+        clearButton.style.backgroundColor = '#2196F3';
+        clearButton.style.color = 'white';
+        clearButton.style.border = 'none';
+        clearButton.style.padding = '8px 15px';
+        clearButton.style.borderRadius = '4px';
+        clearButton.style.cursor = 'pointer';
+        
+        // 버튼 추가
+        buttonContainer.appendChild(saveButton);
+        buttonContainer.appendChild(clearButton);
+        buttonContainer.appendChild(cancelButton);
+        
+        // 모달에 요소 추가
+        modalContent.appendChild(title);
+        modalContent.appendChild(canvas);
+        modalContent.appendChild(buttonContainer);
+        modal.appendChild(modalContent);
+        
+        // 모달을 body에 추가
+        document.body.appendChild(modal);
+        
+        // 캔버스 드로잉 설정
+        var ctx = canvas.getContext('2d');
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#000';
+        
+        var drawing = false;
+        var lastX = 0;
+        var lastY = 0;
+        
+        // 마우스/터치 이벤트 핸들러
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('touchstart', startDrawing);
+        
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchmove', draw);
+        
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        
+        function startDrawing(e) {
+            drawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            lastX = clientX - rect.left;
+            lastY = clientY - rect.top;
+        }
+        
+        function draw(e) {
+            if (!drawing) return;
+            e.preventDefault();
+            
+            var rect = canvas.getBoundingClientRect();
+            var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            var currentX = clientX - rect.left;
+            var currentY = clientY - rect.top;
+            
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(currentX, currentY);
+            ctx.stroke();
+            
+            lastX = currentX;
+            lastY = currentY;
+        }
+        
+        function stopDrawing() {
+            drawing = false;
+        }
+        
+        // 캔버스 초기화
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        
+        // 저장 버튼 이벤트
+        saveButton.addEventListener('click', function() {
+            // 캔버스 내용을 이미지로 변환
+            var dataURL = canvas.toDataURL();
+            signatureField.value = '서명완료';
+            signatureField.setAttribute('data-signature', dataURL);
+            
+            // 모달 닫기
+            document.body.removeChild(modal);
+        });
+        
+        // 취소 버튼 이벤트
+        cancelButton.addEventListener('click', function() {
+            document.body.removeChild(modal);
+        });
+        
+        // 초기화 버튼 이벤트
+        clearButton.addEventListener('click', clearCanvas);
+    }
+
+    // TBM 저장 함수
+    function saveTBM() {
+        try {
+            // 기본 정보 수집
+            var tbmInfo = {
+                date: document.getElementById('tbmDate').value,
+                time: document.getElementById('tbmTime').value,
+                location: document.getElementById('tbmLocation').value,
+                department: document.getElementById('department').value,
+                leader: document.getElementById('tbmLeader').value,
+                workLocation: document.getElementById('workLocation').value,
+                workContent: document.getElementById('workContent').value,
+                preparation: document.getElementById('preparation').value,
+                precautions: document.getElementById('precautions').value
+            };
+            
+            // 보호구 정보 수집
+            var ppe = [];
+            document.querySelectorAll('input[name="ppe"]:checked').forEach(function(checkbox) {
+                ppe.push(checkbox.value);
+            });
+            var otherPpe = document.getElementById('otherPpe').value;
+            if (otherPpe) {
+                ppe.push(otherPpe);
+            }
+            tbmInfo.ppe = ppe;
+            
+            // 위험요인 정보 수집
+            var riskItems = [];
+            var table = document.getElementById('riskTable');
+            var tbody = table.getElementsByTagName('tbody')[0];
+            var rows = tbody.rows;
+            
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].cells;
+                riskItems.push({
+                    no: cells[0].textContent,
+                    workLocation: cells[1].textContent,
+                    workContent: cells[2].textContent,
+                    dangerFactor: cells[3].textContent,
+                    workFrequency: cells[4].textContent,
+                    riskSeverity: cells[5].textContent,
+                    riskLevel: cells[6].textContent,
+                    improvementIdeas: cells[7].textContent
+                });
+            }
+            tbmInfo.riskItems = riskItems;
+            
+            // 참석자 정보 수집
+            var attendees = [];
+            var attendeeRows = document.querySelectorAll('.attendee-row');
+            
+            attendeeRows.forEach(function(row) {
+                var name = row.querySelector('.attendee-name').value;
+                var signature = row.querySelector('.attendee-signature').value;
+                
+                if (name) {
+                    attendees.push({
+                        name: name,
+                        signature: signature
+                    });
+                }
+            });
+            tbmInfo.attendees = attendees;
+            
+            // 데이터 출력 (실제로는 서버로 전송)
+            console.log('TBM 저장 데이터:', tbmInfo);
+            alert('TBM이 성공적으로 저장되었습니다.');
+            
+        } catch (error) {
+            console.error('TBM 저장 중 오류 발생:', error);
+            alert('TBM 저장 중 오류가 발생했습니다: ' + error.message);
+        }
+    }
+
+    // 서명 관련 변수와 함수
+    var canvas, ctx;
+    var isDrawing = false;
+    var lastX = 0;
+    var lastY = 0;
+
+    // 리더 서명 시작 함수
+    function setupLeaderSignature() {
+        canvas = document.getElementById('leaderSignatureCanvas');
+        ctx = canvas.getContext('2d');
+        
+        // 캔버스 크기 설정
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#000';
+        
+        // 마우스/터치 이벤트 핸들러
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('touchstart', startDrawing);
+        
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchmove', draw);
+        
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('touchend', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        
+        function startDrawing(e) {
+            isDrawing = true;
+            var rect = canvas.getBoundingClientRect();
+            var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            lastX = clientX - rect.left;
+            lastY = clientY - rect.top;
+        }
+        
+        function draw(e) {
+            if (!isDrawing) return;
+            e.preventDefault();
+            
+            var rect = canvas.getBoundingClientRect();
+            var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+            var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            var currentX = clientX - rect.left;
+            var currentY = clientY - rect.top;
+            
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(currentX, currentY);
+            ctx.stroke();
+            
+            lastX = currentX;
+            lastY = currentY;
+        }
+        
+        function stopDrawing() {
+            isDrawing = false;
+        }
+    }
+
+    // 서명 지우기 함수
+    function clearLeaderSignature() {
+        if (ctx) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    }
+
+    // 페이지 로드 시 이벤트 리스너 등록
+    document.addEventListener('DOMContentLoaded', function() {
+        // 현재 날짜 설정
+        var today = new Date();
+        var formattedDate = today.toISOString().split('T')[0];
+        document.getElementById('tbmDate').value = formattedDate;
+        
+        // 현재 시간 설정
+        var hours = today.getHours().toString().padStart(2, '0');
+        var minutes = today.getMinutes().toString().padStart(2, '0');
+        var formattedTime = hours + ':' + minutes;
+        document.getElementById('tbmTime').value = formattedTime;
+        
+        // 서명 캔버스 설정
+        setupLeaderSignature();
+        
+        // 위험요인 추가 버튼
+        document.getElementById('addRiskItem').addEventListener('click', addRiskItem);
+        
+        // 참석자 추가 버튼
+        document.getElementById('addAttendee').addEventListener('click', addAttendee);
+        
+        // 첫 참석자 서명 버튼 이벤트 리스너 추가
+        document.querySelector('.attendee-signature-btn').addEventListener('click', function() {
+            openSignatureModal(document.querySelector('.attendee-signature'));
+        });
+        
+        // TBM 저장 버튼
+        document.getElementById('saveTbm').addEventListener('click', saveTBM);
+        
+        // WorkTalk 데이터 가져오기 버튼
+        document.getElementById('importToTBM').addEventListener('click', importWorkTalkToTBM);
+        
+        // WorkTalk 위험요인 추가 버튼
+        document.getElementById('addWorkTalkToRiskTable').addEventListener('click', addWorkTalkToRiskTable);
+        
+        // 리더 서명하기 버튼
+        document.getElementById('startLeaderSignature').addEventListener('click', function() {
+            alert('리더 서명 창에 마우스나 터치로 서명해주세요.');
+        });
+        
+        // 서명 지우기 버튼
+        document.getElementById('clearSignature').addEventListener('click', clearLeaderSignature);
+        
+        // 위험도 자동 계산 이벤트 리스너
+        document.getElementById('wt-workFrequency').addEventListener('change', calculateRisk);
+        document.getElementById('wt-riskLevel').addEventListener('change', calculateRisk);
+        
+        // 사진 업로드 및 미리보기 기능
+        document.getElementById('wt-photo').addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var img = document.createElement('img');
+                    img.src = event.target.result;
+                    var previewArea = document.getElementById('photo-preview');
+                    previewArea.innerHTML = '';
+                    previewArea.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+        
+        // 인쇄 버튼
+        document.getElementById('printTbm').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // PDF로 저장 버튼
+        document.getElementById('savePdf').addEventListener('click', function() {
+            // 대부분의 브라우저에서 인쇄 대화상자에서 PDF로 저장 옵션을 제공함
+            alert('인쇄 대화상자에서 "PDF로 저장" 또는 "프린터에서 Microsoft Print to PDF" 옵션을 선택하세요.');
+            setTimeout(function() {
+                window.print();
+            }, 500);
+        });
+    });
+<script>
+document.getElementById('saveTbm').addEventListener('click', function () {
+    const leaderCanvas = document.getElementById('leaderSignatureCanvas');
+    const leaderSignatureData = leaderCanvas.toDataURL();
+
+    const tbmData = {
+        date: document.getElementById('tbmDate').value,
+        time: document.getElementById('tbmTime').value,
+        location: document.getElementById('tbmLocation').value,
+        department: document.getElementById('department').value,
+        leader: document.getElementById('tbmLeader').value,
+        workLocation: document.getElementById('workLocation').value,
+        workContent: document.getElementById('workContent').value,
+        preparation: document.getElementById('preparation').value,
+        precautions: document.getElementById('precautions').value,
+        leaderSignature: leaderSignatureData,
+        ppe: Array.from(document.querySelectorAll('input[name="ppe"]:checked')).map(cb => cb.value)
+            .concat(document.getElementById('otherPpe').value || []),
+        riskItems: Array.from(document.querySelectorAll('#riskTable tbody tr')).map(row => {
+            const cells = row.querySelectorAll('td');
+            return {
+                no: cells[0].textContent,
+                workLocation: cells[1].textContent,
+                workContent: cells[2].textContent,
+                dangerFactor: cells[3].textContent,
+                workFrequency: cells[4].textContent,
+                riskSeverity: cells[5].textContent,
+                riskLevel: cells[6].textContent,
+                improvementIdeas: cells[7].textContent,
+            };
+        }),
+        attendees: Array.from(document.querySelectorAll('.attendee-row')).map(row => ({
+            name: row.querySelector('.attendee-name')?.value,
+            signature: row.querySelector('.attendee-signature')?.value,
+            'data-signature': row.querySelector('.attendee-signature')?.getAttribute('data-signature')
+        }))
+    };
+
+    fetch('/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(tbmData)
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+        window.location.href = '/list';
+    })
+    .catch(err => {
+        console.error(err);
+        alert('저장 실패!');
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>TBM 목록</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h2>TBM 저장 목록</h2>
+    <form method="get" action="/list">
+        <label>사업장: <input type="text" name="location"></label>
+        <label>부서: <input type="text" name="department"></label>
+        <button type="submit">검색</button>
+        <a href="/export_excel?location={{ request.args.get('location', '') }}&department={{ request.args.get('department', '') }}">
+            <button type="button">엑셀로 내보내기</button>
+        </a>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>일자</th>
+                <th>사업장</th>
+                <th>부서</th>
+                <th>리더</th>
+                <th>상세보기</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in records %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td><a href="/pdf/{{ row[0] }}" target="_blank">PDF 보기</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

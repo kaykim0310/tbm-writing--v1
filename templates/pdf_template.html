@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        h1 { border-bottom: 2px solid #4CAF50; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+        img { max-height: 100px; }
+    </style>
+</head>
+<body>
+    <h1>TBM 작업 미팅 보고서</h1>
+    <p><strong>일시:</strong> {{ tbm.date }} {{ tbm.time }}</p>
+    <p><strong>사업장:</strong> {{ tbm.location }}</p>
+    <p><strong>부서:</strong> {{ tbm.department }}</p>
+    <p><strong>리더:</strong> {{ tbm.leader }}</p>
+    <p><strong>작업 장소:</strong> {{ tbm.work_location }}</p>
+    <p><strong>작업 내용:</strong> {{ tbm.work_content }}</p>
+
+    <h3>보호구</h3>
+    <ul>
+        {% for item in tbm.ppe %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>위험요인</h3>
+    <table>
+        <tr>
+            <th>순번</th><th>작업장소</th><th>위험요인</th><th>위험도</th>
+        </tr>
+        {% for item in tbm.risk_items %}
+        <tr>
+            <td>{{ item.no }}</td>
+            <td>{{ item.workLocation }}</td>
+            <td>{{ item.dangerFactor }}</td>
+            <td>{{ item.riskLevel }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h3>TBM 리더 서명</h3>
+    {% if tbm.leader_signature %}
+        <img src="{{ tbm.leader_signature }}" alt="리더 서명">
+    {% else %}
+        <p>(서명 없음)</p>
+    {% endif %}
+
+    <h3>참석자 서명</h3>
+    <table>
+        <tr><th>이름</th><th>서명</th></tr>
+        {% for p in tbm.attendees %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>
+                {% if p.signature_data %}
+                    <img src="{{ p.signature_data }}" alt="signature">
+                {% else %}
+                    {{ p.signature }}
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
